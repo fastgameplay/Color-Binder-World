@@ -9,15 +9,19 @@ namespace Camera
 {
     public class CameraHolder : DontDestroyMonoBehaviourSingleton<CameraHolder>
     {
-        public UnityEngine.Camera MainCamera => mainCamera;
         [HideInInspector] public Vector2 ScreenBoundaryMin = new Vector2(-10, -10);
         [HideInInspector] public Vector2 ScreenBoundaryMax = new Vector2(10, 10);
-        [field: SerializeField] public bool ShowGizmos {get; private set;} = true;
+        public UnityEngine.Camera MainCamera => mainCamera;
+        public bool ShowGizmos => cameraConfig.ShowGizmos;
 
+        [Header("References")]
         [SerializeField] private UnityEngine.Camera mainCamera;
-        [SerializeField] private float swipeSensitivity = 0.5f;
-        [SerializeField] private float cameraMoveDistance = 10f;
-        [SerializeField] private float cameraMoveSpeed = 0.5f;
+        [Header("Config")]
+        [SerializeField] private SO_CameraConfig cameraConfig;
+        
+        private float swipeSensitivity => cameraConfig.SwipeSensitivity;
+        private float cameraMoveDistance => cameraConfig.CameraMoveDistance;
+        private float cameraMoveSpeed => cameraConfig.CameraMoveSpeed;
 
         private Vector2 adjustedBoundaryMin, adjustedBoundaryMax;
         private Vector3 startDragPosition, endDragPosition, targetPosition;
