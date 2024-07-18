@@ -8,10 +8,10 @@ public class CameraHolderEditor : Editor
     {
         Camera.CameraHolder cameraHolder = (Camera.CameraHolder)target;
 
-        if (!cameraHolder.showGizmos) return;
+        if (!cameraHolder.ShowGizmos) return;
 
-        Vector3 bottomLeft = new Vector3(cameraHolder.boundaryMin.x, cameraHolder.boundaryMin.y, cameraHolder.MainCamera.transform.position.z);
-        Vector3 topRight = new Vector3(cameraHolder.boundaryMax.x, cameraHolder.boundaryMax.y, cameraHolder.MainCamera.transform.position.z);
+        Vector3 bottomLeft = new Vector3(cameraHolder.BoundaryMin.x, cameraHolder.BoundaryMin.y, cameraHolder.MainCamera.transform.position.z);
+        Vector3 topRight = new Vector3(cameraHolder.BoundaryMax.x, cameraHolder.BoundaryMax.y, cameraHolder.MainCamera.transform.position.z);
 
         Handles.color = Color.red;
         Handles.DrawLine(bottomLeft, new Vector3(bottomLeft.x, topRight.y, cameraHolder.MainCamera.transform.position.z));
@@ -26,11 +26,11 @@ public class CameraHolderEditor : Editor
         {
             Undo.RecordObject(cameraHolder, "Change Camera Boundary");
 
-            cameraHolder.boundaryMin = new Vector2(newBottomLeft.x, newBottomLeft.y);
-            cameraHolder.boundaryMax = new Vector2(newTopRight.x, newTopRight.y);
+            cameraHolder.BoundaryMin = new Vector2(newBottomLeft.x, newBottomLeft.y);
+            cameraHolder.BoundaryMax = new Vector2(newTopRight.x, newTopRight.y);
 
-            cameraHolder.boundaryMin = new Vector2(Mathf.Min(cameraHolder.boundaryMin.x, cameraHolder.boundaryMax.x), Mathf.Min(cameraHolder.boundaryMin.y, cameraHolder.boundaryMax.y));
-            cameraHolder.boundaryMax = new Vector2(Mathf.Max(cameraHolder.boundaryMin.x, cameraHolder.boundaryMax.x), Mathf.Max(cameraHolder.boundaryMin.y, cameraHolder.boundaryMax.y));
+            cameraHolder.BoundaryMin = new Vector2(Mathf.Min(cameraHolder.BoundaryMin.x, cameraHolder.BoundaryMax.x), Mathf.Min(cameraHolder.BoundaryMin.y, cameraHolder.BoundaryMax.y));
+            cameraHolder.BoundaryMax = new Vector2(Mathf.Max(cameraHolder.BoundaryMin.x, cameraHolder.BoundaryMax.x), Mathf.Max(cameraHolder.BoundaryMin.y, cameraHolder.BoundaryMax.y));
         }
     }
 }
