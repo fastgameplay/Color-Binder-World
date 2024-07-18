@@ -391,4 +391,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityType: 1
+  boundaryMin: {x: -20.143295, y: -10.360972}
+  boundaryMax: {x: 16.74992, y: 12.016928}
+  <showGizmos>k__BackingField: 1
   mainCamera: {fileID: 2040505403}
+  swipeSensitivity: 0.5
+  cameraMoveSpeed: 10

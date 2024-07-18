@@ -74,10 +74,10 @@ namespace Player.ActionHandlers
 
         public void SetDragEventHandlers(Action<Vector3> dragStartEvent, Action<Vector3> dragEndEvent)
         {
-            ClearEvents();
-
-            DragStartEvent = dragStartEvent;
-            DragEndEvent = dragEndEvent;
+            // ClearEvents();
+            Debug.Log("SetDragEvents");
+            DragStartEvent += dragStartEvent;
+            DragEndEvent += dragEndEvent;
         }
 
         public void ClearEvents()
