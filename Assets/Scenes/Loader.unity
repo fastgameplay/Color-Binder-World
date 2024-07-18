@@ -391,11 +391,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activityType: 1
-  BoundaryMin: {x: -36.8994, y: -21.208086}
-  BoundaryMax: {x: 15.490679, y: 31.688187}
-  AdjustedBoundaryMin: {x: -30.365309, y: -16.208086}
-  AdjustedBoundaryMax: {x: 8.956589, y: 26.688187}
+  ScreenBoundaryMin: {x: -11.992743, y: -11.532879}
+  ScreenBoundaryMax: {x: 14.27541, y: 9.714973}
   <ShowGizmos>k__BackingField: 1
   mainCamera: {fileID: 2040505403}
   swipeSensitivity: 0.5
-  cameraMoveSpeed: 10
+  cameraMoveDistance: 10
+  cameraMoveSpeed: 0.5

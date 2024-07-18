@@ -33,18 +33,10 @@ namespace Camera
                 cameraHolder.ScreenBoundaryMin = new Vector2(Mathf.Min(cameraHolder.ScreenBoundaryMin.x, cameraHolder.ScreenBoundaryMax.x), Mathf.Min(cameraHolder.ScreenBoundaryMin.y, cameraHolder.ScreenBoundaryMax.y));
                 cameraHolder.ScreenBoundaryMax = new Vector2(Mathf.Max(cameraHolder.ScreenBoundaryMin.x, cameraHolder.ScreenBoundaryMax.x), Mathf.Max(cameraHolder.ScreenBoundaryMin.y, cameraHolder.ScreenBoundaryMax.y));
 
-                UpdateAdjustedBoundaries(cameraHolder);
+                cameraHolder.UpdateAdjustedBoundaries();
             }
         }
 
-        private void UpdateAdjustedBoundaries(CameraHolder cameraHolder)
-        {
-            float cameraHeight = cameraHolder.MainCamera.orthographicSize * 2f;
-            float cameraWidth = cameraHeight * cameraHolder.MainCamera.aspect;
 
-            cameraHolder.AdjustedBoundaryMin = new Vector2(cameraHolder.ScreenBoundaryMin.x + cameraWidth / 2, cameraHolder.ScreenBoundaryMin.y + cameraHeight / 2);
-            cameraHolder.AdjustedBoundaryMax = new Vector2(cameraHolder.ScreenBoundaryMax.x - cameraWidth / 2, cameraHolder.ScreenBoundaryMax.y - cameraHeight / 2);
-
-        }
     }
 }
